@@ -1,10 +1,4 @@
-/**
- * ABLAZE LUXE — INTERACTION ENGINE
- * Premium Dark Mode, Grid Warp, and Reveal Logic
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. TEXT DRIFT LOGIC
     const driftText = document.querySelector('.hero-bg-text');
     if (driftText) {
         let driftX = 20;
@@ -14,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 30);
     }
 
-    // 2. REVEAL ANIMATIONS
     const revealElements = document.querySelectorAll('.reveal');
     const callback = (entries) => {
         entries.forEach(entry => {
@@ -26,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(callback, { threshold: 0.1 });
     revealElements.forEach(el => observer.observe(el));
 
-    // 3. DARK MODE TOGGLE
     const toggleBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
     
@@ -48,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. NAVBAR SCROLL EFFECT
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -58,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. BOOKING FORM AJAX
     const bookingForm = document.getElementById('booking-form');
     if (bookingForm) {
         bookingForm.addEventListener('submit', async (e) => {
@@ -84,7 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. GRID WARP CURSOR EFFECT
     const canvas = document.getElementById('warp-canvas');
     const ctx = canvas.getContext('2d');
     
@@ -153,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.strokeStyle = localStorage.getItem('theme') === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.03)';
         ctx.lineWidth = 1;
 
-        // Draw horizontal lines
         for (let r = 0; r < rows; r++) {
             ctx.beginPath();
             for (let c = 0; c < cols; c++) {
@@ -164,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.stroke();
         }
 
-        // Draw vertical lines
         for (let c = 0; c < cols; c++) {
             ctx.beginPath();
             for (let r = 0; r < rows; r++) {
@@ -183,3 +170,30 @@ document.addEventListener('DOMContentLoaded', () => {
     resize();
     draw();
 });
+
+let currentSlide = 0;
+
+function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function moveSlide(direction) {
+    const track = document.getElementById('reviews-track');
+    const slides = document.querySelectorAll('.review-slide');
+    if (!track || slides.length === 0) return;
+    
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+}
+
+function goToSlide(index) {
+    const track = document.getElementById('reviews-track');
+    if (!track) return;
+    currentSlide = index;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    updateDots();
+}

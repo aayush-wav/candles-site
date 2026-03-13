@@ -8,7 +8,6 @@ app.secret_key = 'ablaze_luxe_secret_key'
 
 DATA_FILE = 'data/bookings.json'
 
-# Ensure data file exists
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w') as f:
         json.dump([], f)
