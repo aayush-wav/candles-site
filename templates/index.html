@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ablaze Luxe — Artisanal Candles & Candle Courses</title>
+    <meta name="description" content="Experience the art of artisanal scent with Ablaze Luxe. Premium candles and workshops.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <canvas id="warp-canvas"></canvas>
+    
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav id="navbar">
+        <div class="logo">ABLAZE LUXE</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#services">Experience</a></li>
+            <li><a href="#booking">Book Now</a></li>
+            <li><button id="theme-toggle" aria-label="Toggle Theme">🌙</button></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="hero">
+        <div class="hero-bg-text">Ablaze luxe Scented Candle</div>
+        <div class="reveal">
+            <span class="script">Artistry & Tranquility</span>
+            <h1>An Experience<br>Beyond the Ordinary</h1>
+            <p>A minimal candle studio dedicated to premium aesthetic craftsmanship and the therapeutic art of candle making.</p>
+            <a href="#services" class="btn">Explore Collections</a>
+        </div>
+    </header>
+
+    <section id="services">
+        <div class="section-header reveal">
+            <span>Our Offerings</span>
+            <h2>Curated Experiences</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <img src="/static/images/service1.png" alt="Artisanal Candles" class="service-img">
+                <div class="service-content">
+                    <h3>Artisanal Collections</h3>
+                    <p>Hand-poured perfection using organic soy wax and bespoke fragrances.</p>
+                </div>
+            </div>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-content glass" style="background: var(--primary); color: white; justify-content: center; align-items: center; text-align: center; height: 100%;">
+                    <h3 class="serif" style="font-size: 2.5rem;">Candle Courses</h3>
+                    <p style="margin-top: 1rem;">Unlock the art of scent-blending and wax-crafting in our exclusive workshops.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="glass" style="margin: 0 5%; padding: 5rem 10%;">
+        <div class="section-header reveal">
+            <span>Reservations</span>
+            <h2>Secure Your Experience</h2>
+        </div>
+        <form id="booking-form" class="reveal">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="input-group">
+                    <label>FullName</label>
+                    <input type="text" name="name" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
+                </div>
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
+                </div>
+                <div class="input-group">
+                    <label>Experience</label>
+                    <select name="service" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
+                        <option value="candle_course">Workshop: Artisan Candle Making</option>
+                        <option value="private_session">Private Fragrance Session</option>
+                        <option value="gift_package">Custom Gift Packaging</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Reserve Spot</button>
+        </form>
+    </section>
+
+    <footer style="text-align: center; padding: 5rem 0; color: var(--text-muted);">
+        <p>&copy; 2026 Ablaze Luxe. Artistry and Tranquility.</p>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
