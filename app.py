@@ -25,8 +25,12 @@ def save_data(data):
 def index():
     return render_template('index.html')
 
-@app.route('/booking', methods=['POST'])
-def booking():
+@app.route('/booking')
+def booking_page():
+    return render_template('booking.html')
+
+@app.route('/booking_submit', methods=['POST'])
+def booking_submit():
     data = get_data()
     new_booking = {
         'id': len(data) + 1,

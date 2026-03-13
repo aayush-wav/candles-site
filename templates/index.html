@@ -42,56 +42,84 @@
             <h2>Curated Experiences</h2>
         </div>
         <div class="services-grid">
-            <div class="service-card reveal">
+            <a href="/booking?type=collection" class="service-card reveal" style="text-decoration: none;">
                 <img src="/static/images/service1.png" alt="Artisanal Candles" class="service-img">
                 <div class="service-content">
                     <h3>Artisanal Collections</h3>
                     <p>Hand-poured perfection using organic soy wax and bespoke fragrances.</p>
                 </div>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.2s;">
-                <div class="service-content glass" style="background: var(--primary); color: white; justify-content: center; align-items: center; text-align: center; height: 100%;">
-                    <h3 class="serif" style="font-size: 2.5rem;">Candle Courses</h3>
-                    <p style="margin-top: 1rem;">Unlock the art of scent-blending and wax-crafting in our exclusive workshops.</p>
+            </a>
+            <a href="/booking?type=course" class="service-card reveal" style="transition-delay: 0.2s; text-decoration: none;">
+                <img src="/static/images/service3.jpg" alt="Candle Courses" class="service-img">
+                <div class="service-content">
+                    <h3 class="serif" style="font-size: 2rem;">Candle Courses</h3>
+                    <p>Unlock the art of scent-blending and wax-crafting in our exclusive workshops.</p>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section id="booking" class="glass" style="margin: 0 5%; padding: 5rem 10%;">
+    <section id="reviews" style="background: rgba(0,0,0,0.02); width: 100vw; max-width: none;">
         <div class="section-header reveal">
-            <span>Reservations</span>
-            <h2>Secure Your Experience</h2>
+            <span>Kind Words</span>
+            <h2>Client Experiences</h2>
         </div>
-        <form id="booking-form" class="reveal">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-                <div class="input-group">
-                    <label>FullName</label>
-                    <input type="text" name="name" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
-                </div>
-                <div class="input-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
-                </div>
-                <div class="input-group">
-                    <label>Phone Number</label>
-                    <input type="tel" name="phone" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
-                </div>
-                <div class="input-group">
-                    <label>Experience</label>
-                    <select name="service" required style="width: 100%; border: none; background: transparent; border-bottom: 1px solid var(--primary); padding: 1rem 0; outline: none; color: var(--text-main);">
-                        <option value="candle_course">Workshop: Artisan Candle Making</option>
-                        <option value="private_session">Private Fragrance Session</option>
-                        <option value="gift_package">Custom Gift Packaging</option>
-                    </select>
-                </div>
+        <div class="reviews-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; width: 100%; max-width: 1200px; padding: 0 5%;">
+            <div class="glass reveal" style="padding: 2.5rem;">
+                <p style="font-style: italic; margin-bottom: 1.5rem;">"The studio has a aesthetic vibe and is cozy. It's a good place to spend your day off with your family, friends or your loved ones. The staffs are friendly and enthusiastic."</p>
+                <strong>— Gee_man</strong>
             </div>
-            <button type="submit" class="btn" style="width: 100%;">Reserve Spot</button>
-        </form>
+            <div class="glass reveal" style="padding: 2.5rem; transition-delay: 0.1s;">
+                <p style="font-style: italic; margin-bottom: 1.5rem;">"Gallery of luxury candles. Really good candle designs."</p>
+                <strong>— Ajay J</strong>
+            </div>
+            <div class="glass reveal" style="padding: 2.5rem; transition-delay: 0.2s;">
+                <p style="font-style: italic; margin-bottom: 1.5rem;">"Staff are so polite❤️"</p>
+                <strong>— Santosh Paharii</strong>
+            </div>
+            <div class="glass reveal" style="padding: 2.5rem; transition-delay: 0.3s;">
+                <p style="font-style: italic; margin-bottom: 1.5rem;">"This is how cute and beautiful candles are 😊🤍"</p>
+                <strong>— Shristika Pahari</strong>
+            </div>
+        </div>
     </section>
 
-    <footer style="text-align: center; padding: 5rem 0; color: var(--text-muted);">
-        <p>&copy; 2026 Ablaze Luxe. Artistry and Tranquility.</p>
+    <section id="location">
+        <div class="section-header reveal">
+            <span>Find Us</span>
+            <h2>Visit the Studio</h2>
+        </div>
+        <div class="map-container reveal glass" style="width: 100%; height: 450px; overflow: hidden; border-radius: 30px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.9527231346274!2d85.3282961752519!3d27.656934376211435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb17680e13efe7%3A0xef4968a3a615b024!2sAblaze%20Luxe%20Candle!5e0!3m2!1sen!2snp!4v1773405665651!5m2!1sen!2snp" width="100%" height="100%" style="border:0; filter: grayscale(1) invert(var(--map-invert)); opacity: 0.8;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer style="background: #12100E; color: white; padding: 8rem 5% 5rem; width: 100vw; text-align: left;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 4rem; max-width: 1200px; margin: 0 auto;">
+            <div>
+                <h3 class="serif" style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--secondary);">ABLAZE LUXE</h3>
+                <p style="color: rgba(255,255,255,0.6); max-width: 300px;">Artistry and Tranquility, An experience beyond the ordinary.</p>
+            </div>
+            <div>
+                <h4 style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; color: var(--secondary);">Contact Info</h4>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Khumal Height, Lalitpur 44700</p>
+                <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.5rem;">Phone: 981-8722432</p>
+                <p style="color: rgba(255,255,255,0.8);"><a href="mailto:hello@ablazeluxe.com" style="color: inherit; text-decoration: none;">hello@ablazeluxe.com</a></p>
+            </div>
+            <div>
+                <h4 style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 1.5rem; color: var(--secondary);">Opening Hours</h4>
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 2;">
+                    Tues – Sun: 11:00 AM – 6:30 PM<br>
+                    Mon: Closed
+                </p>
+            </div>
+        </div>
+        <div style="max-width: 1200px; margin: 5rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">&copy; 2026 Ablaze Luxe. Crafted for Tranquility.</p>
+            <div style="display: flex; gap: 2rem;">
+                <a href="/admin" style="font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none;">Admin Access</a>
+            </div>
+        </div>
     </footer>
 
     <script src="/static/js/script.js"></script>

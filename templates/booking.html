@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Your Experience — Ablaze Luxe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .booking-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 5%;
+        }
+        .booking-card {
+            width: 100%;
+            max-width: 800px;
+            padding: 4rem;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid var(--primary);
+            padding: 1rem 0;
+            outline: none;
+            color: var(--text-main);
+            font-family: inherit;
+            margin-bottom: 2rem;
+            transition: border-color 0.3s;
+        }
+        .input-group input:focus {
+            border-bottom-color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="warp-canvas"></canvas>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <nav id="navbar">
+        <div class="logo"><a href="/" style="text-decoration: none; color: inherit;">ABLAZE LUXE</a></div>
+        <ul class="nav-links">
+            <li><a href="/">Back to Home</a></li>
+            <li><button id="theme-toggle">🌙</button></li>
+        </ul>
+    </nav>
+
+    <main class="booking-container">
+        <div class="booking-card glass reveal active">
+            <div class="section-header">
+                <span>Reservations</span>
+                <h2>Secure Your Experience</h2>
+            </div>
+            <form id="booking-form-dedicated">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" required placeholder="E.g. John Doe">
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" required placeholder="98XXXXXXXX">
+                    </div>
+                    <div class="input-group">
+                        <label>Select Experience</label>
+                        <select name="service" id="service-select" required>
+                            <option value="candle_course">Workshop: Artisan Candle Making</option>
+                            <option value="private_session">Private Fragrance Session</option>
+                            <option value="gift_package">Artisanal Collection Order</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn" style="width: 100%; margin-top: 2rem;">Confirm Reservation</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+            if (type) {
+                const select = document.getElementById('service-select');
+                if (type === 'course') select.value = 'candle_course';
+                if (type === 'collection') select.value = 'gift_package';
+            }
+
+            const form = document.getElementById('booking-form-dedicated');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const response = await fetch('/booking_submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                if (result.status === 'success') {
+                    alert(result.message);
+                    window.location.href = '/';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

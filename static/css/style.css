@@ -17,6 +17,7 @@
     --glass: rgba(255, 255, 255, 0.4);
     --glass-dark: rgba(18, 16, 14, 0.6);
     --blur: 12px;
+    --map-invert: 0;
     
     /* Animations */
     --transition: cubic-bezier(0.4, 0, 0.2, 1);
@@ -29,6 +30,7 @@
     --text-muted: #C1B5A9;
     --glass: rgba(18, 16, 14, 0.5);
     --primary: #A1887F; /* Lighter Espresso */
+    --map-invert: 1;
 }
 
 * {
@@ -37,13 +39,22 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--light-bg);
     color: var(--text-main);
     transition: background-color var(--smooth), color var(--smooth);
-    overflow-x: hidden;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h1, h2, h3, .serif {
@@ -102,6 +113,7 @@ h1, h2, h3, .serif {
 nav {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     padding: 2rem 5%;
     display: flex;
@@ -127,6 +139,7 @@ nav.scrolled {
     display: flex;
     list-style: none;
     gap: 2.5rem;
+    align-items: center;
 }
 
 .nav-links a {
@@ -166,11 +179,24 @@ nav.scrolled {
     align-items: center;
     text-align: center;
     position: relative;
-    padding: 0 10%;
+    padding: 0 5%; /* Reduced padding for better mobile space */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero .reveal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .hero-bg-text {
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-size: 15vw;
     font-family: 'Dancing Script', cursive;
     color: var(--primary);
@@ -179,26 +205,38 @@ nav.scrolled {
     z-index: -1;
     user-select: none;
     pointer-events: none;
-    animation: slideText 60s infinite linear;
-}
-
-@keyframes slideText {
-    0% { transform: translateX(20%); }
-    100% { transform: translateX(-100%); }
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(2.5rem, 8vw, 6rem);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-weight: 300;
+    max-width: 90vw;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     color: var(--text-muted);
-    max-width: 600px;
+    max-width: 500px; /* Constrained for better readability */
+    width: 100%;
     margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Mobile Specific Tweaks */
+@media (max-width: 768px) {
+    section {
+        padding: 5rem 5%;
+    }
+    
+    .nav-links {
+        display: none; /* Consider a hamburger menu for later */
+    }
+    
+    .hero-bg-text {
+        font-size: 25vw; /* Bigger for mobile background */
+    }
 }
 
 .btn {
@@ -229,10 +267,18 @@ nav.scrolled {
    --------------------------------- */
 section {
     padding: 10rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .section-header {
     margin-bottom: 5rem;
+    text-align: center;
 }
 
 .section-header span {
@@ -253,6 +299,7 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem;
+    width: 100%;
 }
 
 .service-card {
