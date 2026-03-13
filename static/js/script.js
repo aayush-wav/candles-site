@@ -197,3 +197,13 @@ function goToSlide(index) {
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
     updateDots();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const instaStatus = document.querySelector('#instagram p');
+    if (instaStatus) {
+        setTimeout(() => {
+            instaStatus.textContent = 'Curated artistry from our studio.';
+            instaStatus.style.opacity = '1';
+        }, 1500);
+    }
+});

@@ -63,6 +63,8 @@ h1, h2, h3, .serif {
     -webkit-backdrop-filter: blur(var(--blur));
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
+    z-index: 1;
+    position: relative;
 }
 
 .blob {
@@ -70,7 +72,7 @@ h1, h2, h3, .serif {
     width: 600px;
     height: 600px;
     filter: blur(80px);
-    z-index: -1;
+    z-index: -2;
     opacity: 0.6;
     border-radius: 50%;
     pointer-events: none;
@@ -365,6 +367,14 @@ section {
     color: white;
 }
 
+.service-card {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    border-radius: 20px;
+    display: block;
+}
+
 .service-card:hover { transform: translateY(-15px); }
 .service-card:hover .service-img { transform: scale(1.1); }
 
@@ -405,6 +415,6 @@ section {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 9999;
+    z-index: -1;
     pointer-events: none;
 }
