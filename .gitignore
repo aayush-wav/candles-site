@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# User data
+data/bookings.json
+
+# Exclude local management script
+AblazeManager.bat

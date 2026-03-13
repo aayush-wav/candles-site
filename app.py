@@ -4,9 +4,13 @@ import os
 from datetime import datetime
 
 app = Flask(__name__)
-app.secret_key = 'ablaze_luxe_secret_key'
+# Use an environment variable for the secret key in production!
+app.secret_key = os.environ.get('SECRET_KEY', 'ablaze_luxe_secret_key_dev_fallback')
 
 DATA_FILE = 'data/bookings.json'
+
+if not os.path.exists('data'):
+    os.makedirs('data')
 
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w') as f:
@@ -54,7 +58,9 @@ def admin():
 
 @app.route('/login', methods=['POST'])
 def login():
-    if request.form.get('password') == 'admin123':
+    # In production, use an environment variable for the admin password!
+    admin_pass = os.environ.get('ADMIN_PASSWORD', 'admin123')
+    if request.form.get('password') == admin_pass:
         session['logged_in'] = True
         return redirect(url_for('admin'))
     return "Unauthorized", 401
@@ -78,4 +84,6 @@ def update_status(booking_id):
     return redirect(url_for('admin'))
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5080)
+    port = int(os.environ.get('PORT', 5080))
+    debug_mode = os.environ.get('FLASK_ENV') == 'development'
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
